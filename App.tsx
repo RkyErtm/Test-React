@@ -1,10 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import stlyes from './styles'; //* dışardaki css'i buraya import ederek kullandık.
-import ClassComponent from './src/components/ClassComponent';
-import FunctionComponent from './src/components/FunctionalComponent';
-import FunctionalComponent from './src/components/FunctionalComponent';
+import {Component} from 'react';
+import {View} from 'react-native';
+import StateComponent from './src/components/StateComponent';
 export default class App extends Component {
   render(): any {
     return (
@@ -23,10 +20,15 @@ export default class App extends Component {
 
       // </View>
 
-      //? PART2
-      <View style={{ flex: 1, justifyContent: 'space-between' }}>
-        <ClassComponent />
-        <FunctionalComponent />
+      //? PART2 - component oluşturma ve çağırma
+      // <View style={{flex: 1, justifyContent: 'space-between'}}>
+      //   <ClassComponent />
+      //   <FunctionalComponent />
+      // </View>
+
+      //? Part3 - state(dinamik veri kullanımı, veri tutma, atama)
+      <View style={{flex: 1}}>
+        <StateComponent />
       </View>
     );
   }
