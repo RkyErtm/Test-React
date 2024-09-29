@@ -14,6 +14,23 @@ export default class StateComponent extends Component {
       age: '24',
     };
   }
+
+  changeState = () => {
+    this.setState(
+      {
+        name: 'Nur',
+      },
+      () => {
+        //* then işlevi görür!
+
+        alert('veriler değiştirildi.');
+      },
+    );
+    //* eğer burada ikinci bir set yapsaydık Nur ismi yazılmazdı. React direk en son yapılan işlemi gösterirdi.
+  };
+
+  //* Çağırma yöntemi :  onPress={() =>this.changeState() } veya  onPress={this.changeState}
+
   render() {
     const {name, surname, age} = this.state;
     return (
@@ -23,6 +40,7 @@ export default class StateComponent extends Component {
         <Text style={styles.texts}>{age}</Text>
 
         <TouchableOpacity
+          onPress={this.changeState}
           style={{
             marginTop: 10,
             padding: 10,
