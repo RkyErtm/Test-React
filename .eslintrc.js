@@ -1,4 +1,8 @@
+// eslint-disable-next-line no-undef
 module.exports = {
   root: true,
   extends: '@react-native',
+  rules: {
+    '@typescript-eslint/no-unused-vars': 'off',
+  },
 };
