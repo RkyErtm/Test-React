@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {SafeAreaView} from 'react-native';
-import Routes from './src/routes';
+import {Counter} from './src/Counter';
 
 export default class App extends Component {
   render() {
     return (
       <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-        <Routes />
+        <Counter start={100} step={5} />
+        <Counter start={200} step={10} />
       </SafeAreaView>
     );
   }
