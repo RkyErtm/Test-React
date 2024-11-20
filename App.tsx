@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {SafeAreaView, Text} from 'react-native';
-import {Counter} from './src/Counter';
-import {Container} from './src/Container';
+import React, { Component } from 'react';
+import { Image, SafeAreaView, Text } from 'react-native';
+import { Counter } from './src/Counter';
+import { Container } from './src/Container';
 
 export default class App extends Component {
   render() {
@@ -13,14 +13,8 @@ export default class App extends Component {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <Counter start={100} step={5} />
-        <Counter start={200} step={10} />
-
-        <Container width={100} height={200} variant="primary">
-          <Container width={50} height={50} variant="warning">
-            <Text>ABC</Text>
-          </Container>
-        </Container>
+        <Image borderRadius={100} width={100} height={100} source={{ uri: 'https://static.vecteezy.com/system/resources/thumbnails/009/209/212/small/neon-glowing-profile-icon-3d-illustration-vector.jpg' }}></Image>
+        <Image source={require('./contents/profile.jpg')}></Image>
       </SafeAreaView>
     );
   }
