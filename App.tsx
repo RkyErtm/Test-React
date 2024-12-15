@@ -1,15 +1,24 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, View} from 'react-native';
-import {ProductList} from './src/components/FetchAPI/ProductList/ProductList';
+import {SafeAreaView, StatusBar, Text, View} from 'react-native';
+import {NameContext, NameContextProvider} from './src/contexts/NameContext';
+
+const AppContent = () => {
+  const {name} = React.useContext(NameContext); // Context'ten name verisi alınıyor
+  return (
+    <View style={{marginTop: 20}}>
+      <Text>{name}</Text> {/* Metin doğru şekilde render ediliyor */}
+    </View>
+  );
+};
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <StatusBar />
-      <View style={{marginTop: 20}}>
-        <ProductList />
-      </View>
-    </SafeAreaView>
+    <NameContextProvider>
+      <SafeAreaView>
+        <StatusBar />
+        <AppContent />
+      </SafeAreaView>
+    </NameContextProvider>
   );
 };
 
