@@ -1,24 +1,21 @@
+/* eslint-disable react/jsx-no-undef */
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import {SafeAreaView, StatusBar, Text, View} from 'react-native';
-import {NameContext, NameContextProvider} from './src/contexts/NameContext';
+import {Home} from './src/screens/Home';
 
-const AppContent = () => {
-  const {name} = React.useContext(NameContext); // Context'ten name verisi alınıyor
-  return (
-    <View style={{marginTop: 20}}>
-      <Text>{name}</Text> {/* Metin doğru şekilde render ediliyor */}
-    </View>
-  );
-};
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <NameContextProvider>
-      <SafeAreaView>
-        <StatusBar />
-        <AppContent />
-      </SafeAreaView>
-    </NameContextProvider>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen name="HOME" component={Home}></Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
