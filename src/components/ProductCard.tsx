@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {colors} from '../constants/colors';
@@ -7,9 +7,6 @@ import {fontFamily} from '../constants/fontfamily';
 import {IProduct} from '../models/Product';
 
 export const ProductCard = (data: IProduct) => {
-  useEffect(() => {
-    console.log(data);
-  });
   return (
     <ScrollView>
       <TouchableOpacity key={data?.id} style={styles.container}>
@@ -32,12 +29,12 @@ const styles = StyleSheet.create({
     marginVertical: spacing.md,
     backgroundColor: colors.background,
     borderRadius: 12,
-    width: '95%',
+    width: '100%',
     elevation: 5,
   },
   imageWrapper: {
     margin: spacing.sm,
-    borderRadius: 12,
+    borderRadius: 3,
   },
   img: {
     width: '100%',

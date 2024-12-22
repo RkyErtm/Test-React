@@ -4,7 +4,7 @@ import { IProduct } from "../models/Product";
 const getFakeProducts = (): Array<IProduct> => {
     const products: Array<IProduct> = [];
 
-    const shuffled = Array.from({ length: 11 }, (_, i) => i).sort(
+    const shuffled = Array.from({ length: 10 }, (_, i) => i).sort(
         () => Math.random() - 0.5,
     );
 
