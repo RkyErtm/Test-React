@@ -12,12 +12,14 @@ import {ProductService} from '../services/ProductService';
 import {CategoryService} from '../services/CategoryService';
 
 export const Home = () => {
-  const products = useMemo(() => ProductService.getFakeProducts(), []);
+  const products = ProductService.getFakeProducts();
   const categories = useMemo(() => CategoryService.getFakeCategories(), []);
   const [selectedCategory, setSelectedCategory] = useState(1);
+  const [data, setData] = useState(products);
 
   const handleUpdateCategory = (newCategory: number) => {
     setSelectedCategory(newCategory);
+    setData(products);
   };
   return (
     <View style={styles.container}>
@@ -62,7 +64,7 @@ export const Home = () => {
               )}></FlatList>
           </>
         }
-        data={products}
+        data={data}
         renderItem={({item}) => <ProductCard {...item} />}
         numColumns={2}
         columnWrapperStyle={{
