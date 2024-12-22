@@ -1,13 +1,16 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 /* eslint-disable react/react-in-jsx-scope */
-import {Image, StyleSheet, Text, TextInput, View} from 'react-native';
+import React, {useMemo} from 'react';
+import {FlatList, Image, StyleSheet, Text, TextInput, View} from 'react-native';
+import {Category} from '../components/Category';
+import {ProductCard} from '../components/ProductCard';
 import {colors} from '../constants/colors';
 import {fontSize, iconSize, spacing} from '../constants/dimentions';
 import {fontFamily} from '../constants/fontfamily';
-import React from 'react';
-import {Category} from '../components/Category';
+import {ProductService} from '../services/ProductService';
 
 export const Home = () => {
+  const products = useMemo(() => ProductService.getFakeProducts(), []);
   return (
     <View style={styles.container}>
       <Text style={styles.headline}>Find your suitable watch now.</Text>
@@ -30,8 +33,16 @@ export const Home = () => {
             style={styles.logo}></Image>
         </View>
       </View>
-      {/* Category area */}
-      <Category />
+      {/* Product area */}
+      <FlatList
+        ListHeaderComponent={<Category />}
+        data={products}
+        renderItem={({item}) => <ProductCard {...item} />}
+        numColumns={2}
+        columnWrapperStyle={{
+          justifyContent: 'space-between',
+        }}
+        showsVerticalScrollIndicator={false}></FlatList>
     </View>
   );
 };
