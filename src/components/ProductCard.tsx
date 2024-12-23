@@ -5,19 +5,28 @@ import {colors} from '../constants/colors';
 import {fontSize, spacing} from '../constants/dimentions';
 import {fontFamily} from '../constants/fontfamily';
 import {IProduct} from '../models/Product';
-
+import {useNavigation} from '@react-navigation/native';
 export const ProductCard = (data: IProduct) => {
+  const navigation = useNavigation();
+
+  const handleProductDetailScreen = () => {
+    navigation.navigate(...('Product-detail' as never), {data});
+  };
+
   return (
     <ScrollView>
-      <TouchableOpacity key={data?.id} style={styles.container}>
+      <TouchableOpacity
+        onPress={handleProductDetailScreen}
+        key={data?.id}
+        style={styles.container}>
         <View style={styles.imageWrapper}>
           <Image style={styles.img} source={{uri: data?.image}}></Image>
         </View>
         {/* Product content */}
         <View style={styles.contentWrapper}>
-          <Text style={styles.title}>{data.name}</Text>
-          <Text style={styles.subtitle}>{data.brand}</Text>
-          <Text style={styles.price}>${data.price}</Text>
+          <Text style={styles.title}>{data?.name}</Text>
+          <Text style={styles.subtitle}>{data?.brand}</Text>
+          <Text style={styles.price}>${data?.price}</Text>
         </View>
       </TouchableOpacity>
     </ScrollView>
