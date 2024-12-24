@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -5,12 +6,19 @@ import {colors} from '../constants/colors';
 import {fontSize, spacing} from '../constants/dimentions';
 import {fontFamily} from '../constants/fontfamily';
 import {IProduct} from '../models/Product';
-import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from '../models/Types';
+
+type ProductDetailNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Product-detail'
+>;
+
 export const ProductCard = (data: IProduct) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<ProductDetailNavigationProp>();
 
   const handleProductDetailScreen = () => {
-    navigation.navigate(...('Product-detail' as never), {data});
+    navigation.navigate('Product-detail', {data});
   };
 
   return (

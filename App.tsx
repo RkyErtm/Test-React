@@ -4,8 +4,9 @@ import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import {Home} from './src/screens/HomeScreen';
 import {ProductDetail} from './src/screens/ProductDetailScreen';
+import {RootStackParamList} from './src/models/Types';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParamList>();
 
 const App = () => {
   return (
