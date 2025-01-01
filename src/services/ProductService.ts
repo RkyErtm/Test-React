@@ -16,7 +16,8 @@ const getFakeProducts = (): Array<IProduct> => {
             name: faker.commerce.product(),
             brand: faker.commerce.department(),
             price: faker.commerce.price(),
-            images: images
+            images: images,
+            review: faker.number.float({ min: 10, max: 100, multipleOf: 0.02 }).toString(),
         });
     });
     return products;

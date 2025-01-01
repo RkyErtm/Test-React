@@ -68,8 +68,8 @@ const stlyes = StyleSheet.create({
     paddingTop: spacing.md,
   },
   image: {
-    width: 350,
-    height: 350,
+    width: 360,
+    height: 360,
     resizeMode: 'cover',
     borderRadius: 10,
   },

@@ -25,7 +25,7 @@ const stlyes = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginHorizontal: spacing.lg,
-    marginTop: spacing.lg,
+    marginHorizontal: spacing.md,
+    marginTop: spacing.md,
   },
 });
