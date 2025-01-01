@@ -1,4 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -6,11 +7,10 @@ import {colors} from '../constants/colors';
 import {fontSize, spacing} from '../constants/dimentions';
 import {fontFamily} from '../constants/fontfamily';
 import {IProduct} from '../models/Product';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from '../models/Types';
+import {RootTypeList} from '../models/Types';
 
 type ProductDetailNavigationProp = StackNavigationProp<
-  RootStackParamList,
+  RootTypeList,
   'Product-detail'
 >;
 
@@ -28,7 +28,7 @@ export const ProductCard = (data: IProduct) => {
         key={data?.id}
         style={styles.container}>
         <View style={styles.imageWrapper}>
-          <Image style={styles.img} source={{uri: data?.image}}></Image>
+          <Image style={styles.img} source={{uri: data?.images[0]}}></Image>
         </View>
         {/* Product content */}
         <View style={styles.contentWrapper}>

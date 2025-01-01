@@ -9,12 +9,14 @@ const getFakeProducts = (): Array<IProduct> => {
     );
 
     shuffled.forEach(id => {
+        const images = Array.from({ length: 5 }, () => faker.image.urlPicsumPhotos());
+
         products.push({
             id,
             name: faker.commerce.product(),
             brand: faker.commerce.department(),
             price: faker.commerce.price(),
-            image: faker.image.urlPicsumPhotos(),
+            images: images
         });
     });
     return products;

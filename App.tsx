@@ -2,26 +2,30 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
+import {RootTypeList} from './src/models/Types';
 import {Home} from './src/screens/HomeScreen';
 import {ProductDetail} from './src/screens/ProductDetailScreen';
-import {RootStackParamList} from './src/models/Types';
+import {StatusBar} from 'react-native';
 
-const Stack = createStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator<RootTypeList>();
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-        initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home}></Stack.Screen>
-        <Stack.Screen
-          name="Product-detail"
-          component={ProductDetail}></Stack.Screen>
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}
+          initialRouteName="Home">
+          <Stack.Screen name="Home" component={Home}></Stack.Screen>
+          <Stack.Screen
+            name="Product-detail"
+            component={ProductDetail}></Stack.Screen>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
   );
 };
 
