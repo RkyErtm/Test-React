@@ -6,11 +6,13 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import React from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {iconSize, spacing} from '../constants/dimentions';
+import {useNavigation} from '@react-navigation/native';
 
 export const Header = () => {
+  const navigation = useNavigation();
   return (
     <View style={stlyes.container}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
         <FontAwesomeIcon icon={faArrowLeft} size={iconSize.md} />
       </TouchableOpacity>
       <TouchableOpacity>

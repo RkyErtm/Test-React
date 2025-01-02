@@ -17,7 +17,6 @@ export const ProductCarosel: React.FC<ProductCaroselProps> = ({image}) => {
     if (viewableItems.viewableItems.length > 0) {
       setActiveSlide(viewableItems.viewableItems[0].index);
     }
-    // console.log(viewableItems);
   });
   return (
     <>

@@ -14,10 +14,12 @@ const getFakeProducts = (): Array<IProduct> => {
         products.push({
             id,
             name: faker.commerce.product(),
+            details: faker.commerce.productDescription(),
             brand: faker.commerce.department(),
             price: faker.commerce.price(),
             images: images,
             review: faker.number.float({ min: 10, max: 100, multipleOf: 0.02 }).toString(),
+            reviewDetail: faker.commerce.productMaterial(),
         });
     });
     return products;
